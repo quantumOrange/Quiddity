@@ -12,6 +12,7 @@
 		54553FCC21F0F3130020E5B6 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54553FCB21F0F3130020E5B6 /* Triangle.swift */; };
 		54553FCE21F0F5DC0020E5B6 /* TriangleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54553FCD21F0F5DC0020E5B6 /* TriangleTests.swift */; };
 		54553FD021F0FDE80020E5B6 /* Quad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54553FCF21F0FDE80020E5B6 /* Quad.swift */; };
+		54553FD421F116440020E5B6 /* Polygon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54553FD321F116440020E5B6 /* Polygon.swift */; };
 		54DCCB3921EDEA41006ECD64 /* Quiddity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54DCCB2F21EDEA41006ECD64 /* Quiddity.framework */; };
 		54DCCB3E21EDEA41006ECD64 /* QuiddityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DCCB3D21EDEA41006ECD64 /* QuiddityTests.swift */; };
 		54DCCB4021EDEA41006ECD64 /* Quiddity.h in Headers */ = {isa = PBXBuildFile; fileRef = 54DCCB3221EDEA41006ECD64 /* Quiddity.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -44,6 +45,7 @@
 		54553FCB21F0F3130020E5B6 /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
 		54553FCD21F0F5DC0020E5B6 /* TriangleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriangleTests.swift; sourceTree = "<group>"; };
 		54553FCF21F0FDE80020E5B6 /* Quad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quad.swift; sourceTree = "<group>"; };
+		54553FD321F116440020E5B6 /* Polygon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Polygon.swift; sourceTree = "<group>"; };
 		54DCCB2F21EDEA41006ECD64 /* Quiddity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quiddity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		54DCCB3221EDEA41006ECD64 /* Quiddity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Quiddity.h; sourceTree = "<group>"; };
 		54DCCB3321EDEA41006ECD64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				54DCCB4E21EDF1F9006ECD64 /* Circle.swift */,
+				54553FD321F116440020E5B6 /* Polygon.swift */,
 				54553FCF21F0FDE80020E5B6 /* Quad.swift */,
 				54553FCB21F0F3130020E5B6 /* Triangle.swift */,
 				54553FC721F0E8530020E5B6 /* Line.swift */,
@@ -278,6 +281,7 @@
 				54553FD021F0FDE80020E5B6 /* Quad.swift in Sources */,
 				54DCCB5721EDF1F9006ECD64 /* UIColor+Random.swift in Sources */,
 				54DCCB5421EDF1F9006ECD64 /* CGPointExtension.swift in Sources */,
+				54553FD421F116440020E5B6 /* Polygon.swift in Sources */,
 				54553FC821F0E8530020E5B6 /* Line.swift in Sources */,
 				54DCCB5221EDF1F9006ECD64 /* Array2D.swift in Sources */,
 				54DCCB5621EDF1F9006ECD64 /* Circle.swift in Sources */,
