@@ -26,6 +26,10 @@ public struct Vec2 {
         self.x = x
         self.y = y
     }
+    
+    static var zero:Vec2 {
+        return Vec2(x: 0.0, y: 0.0)
+    }
 }
 
 

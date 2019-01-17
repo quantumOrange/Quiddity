@@ -19,6 +19,10 @@ public struct Circle  {
         radius = r
     }
 
+}
+
+extension Circle {
+    
     public var perimeter:Double {
         return 2 * .pi * radius
     }
