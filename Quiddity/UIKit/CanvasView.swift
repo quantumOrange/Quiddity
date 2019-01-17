@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-public class CGCanvas:UIView {
+public class CanvasView:UIView {
     
     public var paintables:[Paintable]=[] {
         didSet {
