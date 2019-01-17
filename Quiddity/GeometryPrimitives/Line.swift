@@ -21,6 +21,10 @@ public struct Line {
     var vector:Vec2 {
         return end - start
     }
+    
+    public var midPoint:Vec2 {
+        return  start + 0.5*(end-start)
+    }
 }
 
 extension Line {
@@ -46,8 +50,13 @@ extension Line {
         return intersectionPoint
     }
     
+    
+    
+    
 }
 
 public func intersect(left:Line, right:Line) -> Vec2? {
     return left.intersect(with: right)
 }
+
+
