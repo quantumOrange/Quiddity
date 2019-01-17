@@ -90,7 +90,6 @@ public struct TestRenderer : Renderer {
         print("stroke")
     }
     
-    
     public func addQuadCurve(to p: Vec2, control: Vec2){
         print("add quadratic bezier to\(p.x), \(p.y)) with control: \(control.x), \(control.y)) ")
     }
@@ -135,11 +134,6 @@ extension Array : Drawable where Element == Drawable {
     }
 }
 
-extension Circle : Drawable {
-    public func draw(renderer: Renderer) {
-        renderer.addCircle(center: center, radius: radius)
-    }
-}
 
 public struct RGB {
     let r:Float
