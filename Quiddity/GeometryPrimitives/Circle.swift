@@ -1,5 +1,5 @@
 //
-//  DCCircle.swift
+//  Circle.swift
 //  DrawingDemoApp
 //
 //  Created by David Crooks on 28/02/2017.
@@ -7,26 +7,23 @@
 //
 
 import Foundation
-import CoreGraphics
 
-//let twoPi = CGFloat.pi * 2
-//let piByTwo = CGFloat.pi * 0.5
 
 public struct Circle  {
     
-    public let center: CGPoint
-    public let radius: CGFloat
+    public let center: Vec2
+    public let radius: Double
     
-    public init(center c:CGPoint,radius r:CGFloat){
+    public init(center c:Vec2,radius r:Double){
         center = c
         radius = r
     }
-    
-    public var perimeter:CGFloat {
+
+    public var perimeter:Double {
         return 2 * .pi * radius
     }
     
-    public var area:CGFloat {
+    public var area:Double {
         return .pi * radius * radius
     }
     

@@ -3,15 +3,15 @@ import PlaygroundSupport
 import Quiddity
 
 let drawFrame = CGRect(x:0.0,y:0.0,width:500,height:500)
-let radius = CGFloat(20)
+let radius = 20.0
 let rows = 10
 
 let canvasView = CanvasView(frame: drawFrame)
 canvasView.backgroundColor = UIColor.white
 
 //Create a grid of CGPoints
-let innerFrame = drawFrame.insetBy(dx: radius, dy: radius)
-let grid = Array2D<(CGPoint,CGPoint)>.createGrid(rows: rows, columns: rows, in: innerFrame)
+let innerFrame = drawFrame.insetBy(dx: CGFloat(radius), dy: CGFloat(radius))
+let grid = Array2D<(Vec2,Vec2)>.createGrid(rows: rows, columns: rows, in: innerFrame)
 
 
 func randomFill<A:Drawable>(_ drawable:A) -> Paintable {

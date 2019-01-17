@@ -2,12 +2,12 @@ import Foundation
 import CoreGraphics
 
 public protocol Renderer {
-    func move(to:CGPoint)
+    func move(to:Vec2)
     
-    func addLine(to:CGPoint)
-    func addArc(center: CGPoint, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat)
-    func addCircle(center: CGPoint, radius: CGFloat)
-    func addQuadCurve(to: CGPoint, control: CGPoint)
+    func addLine(to:Vec2)
+    func addArc(center: Vec2, radius: Double, startAngle: Double, endAngle: Double)
+    func addCircle(center: Vec2, radius: Double)
+    func addQuadCurve(to: Vec2, control: Vec2)
     
     func fill()
     func stroke()
@@ -16,6 +16,19 @@ public protocol Renderer {
 }
 
 extension CGContext : Renderer {
+    public func move(to: Vec2) {
+        move(to: CGPoint(to))
+    }
+    
+    public func addLine(to: Vec2) {
+        addLine(to: CGPoint(to))
+    }
+    
+    
+    public func addQuadCurve(to: Vec2, control: Vec2) {
+        addQuadCurve(to:CGPoint(to), control: CGPoint(control))
+    }
+    
     
     public func stroke() {
         
@@ -30,24 +43,24 @@ extension CGContext : Renderer {
     }
     
     public func setStroke(_ stroke:Stroke){
-        setLineWidth(stroke.weight)
+        setLineWidth(CGFloat(stroke.weight))
         setStrokeColor(stroke.color.cgColor)
     }
    
-    public func addArc(center: CGPoint, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat) {
+    public func addArc(center: Vec2, radius: Double, startAngle: Double, endAngle: Double) {
         
         let arc = CGMutablePath()
         
-        arc.addArc(center: center, radius: radius,
-                   startAngle: startAngle, endAngle: endAngle, clockwise: false)
+        arc.addArc(center: CGPoint(center), radius: CGFloat(radius),
+                   startAngle: CGFloat(startAngle), endAngle: CGFloat(endAngle), clockwise: false)
         
         addPath(arc)
     }
     
-    public func addCircle(center: CGPoint, radius: CGFloat) {
-        let origin = center - CGPoint(x:radius,y:radius)
+    public func addCircle(center: Vec2, radius: Double) {
+        let origin = center - Vec2(x:radius,y:radius)
         let size = CGSize(width: 2*radius, height: 2*radius)
-        let rect = CGRect(origin: origin, size: size)
+        let rect = CGRect(origin: CGPoint(origin), size: size)
         addEllipse(in:rect)
     }
     
@@ -78,20 +91,20 @@ public struct TestRenderer : Renderer {
     }
     
     
-    public func addQuadCurve(to p: CGPoint, control: CGPoint){
+    public func addQuadCurve(to p: Vec2, control: Vec2){
         print("add quadratic bezier to\(p.x), \(p.y)) with control: \(control.x), \(control.y)) ")
     }
     
-    public func addLine(to p: CGPoint) {
+    public func addLine(to p: Vec2) {
         print("lineTo(\(p.x), \(p.y))")
     }
     
-    public func move(to p: CGPoint) { print("moveTo(\(p.x), \(p.y))") }
+    public func move(to p: Vec2) { print("moveTo(\(p.x), \(p.y))") }
     
-    public func addArc(center: CGPoint, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat) {
+    public func addArc(center: Vec2, radius: Double, startAngle: Double, endAngle: Double) {
         print("arcAt(\(center), radius: \(radius)," + " startAngle: \(startAngle), endAngle: \(endAngle))")
     }
-    public func addCircle(center: CGPoint, radius: CGFloat){
+    public func addCircle(center: Vec2, radius: Double){
         print("circleAt(\(center), radius: \(radius)")
     }
 }
@@ -102,13 +115,13 @@ public protocol Drawable {
 
 extension Drawable {
     
-    func drawPath(withPoints points:[CGPoint], renderer: Renderer) {
+    func drawPath(withPoints points:[Vec2], renderer: Renderer) {
         guard let first = points.first else { return }
         renderer.move(to: first)
         points.dropFirst().forEach{ renderer.addLine(to: $0) }
     }
     
-    func drawLoop(withPoints points:[CGPoint], renderer: Renderer) {
+    func drawLoop(withPoints points:[Vec2], renderer: Renderer) {
         guard let last = points.last else { return }
         renderer.move(to: last)
         points.forEach{ renderer.addLine(to: $0) }
@@ -146,34 +159,10 @@ extension CGColor: Color {
 }
 
 public struct Stroke {
-    let weight:CGFloat
+    let weight:Double
     let color:Color
 }
 
-public struct Paintable {
-    public init(drawable:Drawable, fill:Color?, stroke:Stroke? ){
-        self.drawable = drawable
-        self.fill = fill
-        self.stroke = stroke
-    }
-    
-    let drawable:Drawable
-    let fill:Color?
-    let stroke:Stroke?
-    
-    func paint(renderer:Renderer) {
-        if let fillColor = fill {
-            renderer.setFill(fillColor)
-            drawable.draw(renderer:renderer)
-            renderer.fill()
-        }
-        if let stroke = stroke {
-            renderer.setStroke(stroke)
-            drawable.draw(renderer:renderer)
-            renderer.stroke()
-        }
-    }
-}
 
 
 

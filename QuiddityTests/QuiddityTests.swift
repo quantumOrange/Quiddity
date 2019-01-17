@@ -11,15 +11,15 @@ import XCTest
 
 class QuiddityTests: XCTestCase {
 
-    var testPoints:[CGPoint]?
+    var testPoints:[Vec2] = []
     
     override func setUp() {
         super.setUp()
 
         let range = -5.0...5.0
         
-        testPoints = (0...100).map{ _ in
-            return CGPoint(x: Double.random(in: range), y: Double.random(in: range))
+        testPoints = (0...100000).map{ _ in
+            return Vec2(x: Double.random(in: range), y: Double.random(in: range))
         }
         
     }
@@ -30,11 +30,9 @@ class QuiddityTests: XCTestCase {
     }
     
     func testCGPoint() {
-        let tolerance = CGFloat(0.00001)
-        guard let testPoints = testPoints else { XCTFail("Test points nil"); return }
+        let tolerance = 0.00001
         
-        
-        func testAssosiative(a:CGPoint,b:CGPoint,c:CGPoint)  {
+        func testAssosiative(a:Vec2,b:Vec2, c:Vec2)   {
             
             let lhs = ( a + b ) + c
             let rhs = a + ( b + c )
@@ -45,7 +43,7 @@ class QuiddityTests: XCTestCase {
         }
         
         
-        func testDot(a:CGPoint,b:CGPoint, c:CGPoint) {
+        func testDot(a:Vec2,b:Vec2, c:Vec2) {
             
             //commutative
             XCTAssertEqual(a.dot(b),b.dot(a),accuracy:tolerance,"Dot Commutativity fails for x with \(a),\(b)")
@@ -53,9 +51,8 @@ class QuiddityTests: XCTestCase {
             //distribitve over addition
             XCTAssertEqual(a.dot(b + c),a.dot(b) + a.dot(c),accuracy:tolerance, "Dot Distribitivity fails for x with \(a),\(b),\(c)")
             
-            let orthogonalToA = CGPoint(x: -a.y, y: a.x)
+            let orthogonalToA = Vec2(x: -a.y, y: a.x)
             XCTAssertEqual(a.dot(orthogonalToA), 0.0, accuracy: tolerance, "Dot orthoganlity fails for \(a)")
-            //XCTAssert(abs(a.dot(orthogonalToA))<tolerance ,"Dot orthoganlity fails for \(a)")
         }
         
         //test  assosiative
@@ -71,11 +68,13 @@ class QuiddityTests: XCTestCase {
         
     }
 
-
+   
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
-            
+            let s = testPoints.map{ 20.0*$0.normalized }
+                .map { Circle(center: $0, radius: 5.0)
+            }
         }
     }
 

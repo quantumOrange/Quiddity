@@ -14,12 +14,13 @@
 		54DCCB5221EDF1F9006ECD64 /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DCCB4A21EDF1F9006ECD64 /* Array2D.swift */; };
 		54DCCB5321EDF1F9006ECD64 /* Drawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DCCB4B21EDF1F9006ECD64 /* Drawable.swift */; };
 		54DCCB5421EDF1F9006ECD64 /* CGPointExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DCCB4C21EDF1F9006ECD64 /* CGPointExtension.swift */; };
-		54DCCB5521EDF1F9006ECD64 /* Array2D+CGPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DCCB4D21EDF1F9006ECD64 /* Array2D+CGPoint.swift */; };
+		54DCCB5521EDF1F9006ECD64 /* Array2D+Vec2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DCCB4D21EDF1F9006ECD64 /* Array2D+Vec2.swift */; };
 		54DCCB5621EDF1F9006ECD64 /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DCCB4E21EDF1F9006ECD64 /* Circle.swift */; };
 		54DCCB5721EDF1F9006ECD64 /* UIColor+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DCCB4F21EDF1F9006ECD64 /* UIColor+Random.swift */; };
-		54DCCB5821EDF1F9006ECD64 /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DCCB5021EDF1F9006ECD64 /* Canvas.swift */; };
+		54DCCB5821EDF1F9006ECD64 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DCCB5021EDF1F9006ECD64 /* CanvasView.swift */; };
 		54DCCB5B21EDF698006ECD64 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DCCB5A21EDF698006ECD64 /* Util.swift */; };
 		54DCCB6021EE69BD006ECD64 /* Paintable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DCCB5F21EE69BD006ECD64 /* Paintable.swift */; };
+		54DCCB6421F09D4B006ECD64 /* Vec2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DCCB6321F09D4B006ECD64 /* Vec2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,12 +44,13 @@
 		54DCCB4A21EDF1F9006ECD64 /* Array2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array2D.swift; sourceTree = "<group>"; };
 		54DCCB4B21EDF1F9006ECD64 /* Drawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drawable.swift; sourceTree = "<group>"; };
 		54DCCB4C21EDF1F9006ECD64 /* CGPointExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGPointExtension.swift; sourceTree = "<group>"; };
-		54DCCB4D21EDF1F9006ECD64 /* Array2D+CGPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array2D+CGPoint.swift"; sourceTree = "<group>"; };
+		54DCCB4D21EDF1F9006ECD64 /* Array2D+Vec2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array2D+Vec2.swift"; sourceTree = "<group>"; };
 		54DCCB4E21EDF1F9006ECD64 /* Circle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
 		54DCCB4F21EDF1F9006ECD64 /* UIColor+Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Random.swift"; sourceTree = "<group>"; };
-		54DCCB5021EDF1F9006ECD64 /* Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
+		54DCCB5021EDF1F9006ECD64 /* CanvasView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		54DCCB5A21EDF698006ECD64 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		54DCCB5F21EE69BD006ECD64 /* Paintable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paintable.swift; sourceTree = "<group>"; };
+		54DCCB6321F09D4B006ECD64 /* Vec2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vec2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,9 +93,10 @@
 		54DCCB3121EDEA41006ECD64 /* Quiddity */ = {
 			isa = PBXGroup;
 			children = (
+				54DCCB6321F09D4B006ECD64 /* Vec2.swift */,
 				54DCCB5A21EDF698006ECD64 /* Util.swift */,
 				54DCCB4A21EDF1F9006ECD64 /* Array2D.swift */,
-				54DCCB4D21EDF1F9006ECD64 /* Array2D+CGPoint.swift */,
+				54DCCB4D21EDF1F9006ECD64 /* Array2D+Vec2.swift */,
 				54DCCB4B21EDF1F9006ECD64 /* Drawable.swift */,
 				54DCCB5F21EE69BD006ECD64 /* Paintable.swift */,
 				54DCCB5C21EE0124006ECD64 /* CoreGraphics */,
@@ -117,7 +120,7 @@
 		54DCCB5921EDF25E006ECD64 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				54DCCB5021EDF1F9006ECD64 /* Canvas.swift */,
+				54DCCB5021EDF1F9006ECD64 /* CanvasView.swift */,
 				54DCCB4F21EDF1F9006ECD64 /* UIColor+Random.swift */,
 			);
 			path = UIKit;
@@ -249,11 +252,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54DCCB5521EDF1F9006ECD64 /* Array2D+CGPoint.swift in Sources */,
+				54DCCB5521EDF1F9006ECD64 /* Array2D+Vec2.swift in Sources */,
+				54DCCB6421F09D4B006ECD64 /* Vec2.swift in Sources */,
 				54DCCB5B21EDF698006ECD64 /* Util.swift in Sources */,
 				54DCCB5321EDF1F9006ECD64 /* Drawable.swift in Sources */,
 				54DCCB5121EDF1F9006ECD64 /* CGSizeExtension.swift in Sources */,
-				54DCCB5821EDF1F9006ECD64 /* Canvas.swift in Sources */,
+				54DCCB5821EDF1F9006ECD64 /* CanvasView.swift in Sources */,
 				54DCCB6021EE69BD006ECD64 /* Paintable.swift in Sources */,
 				54DCCB5721EDF1F9006ECD64 /* UIColor+Random.swift in Sources */,
 				54DCCB5421EDF1F9006ECD64 /* CGPointExtension.swift in Sources */,

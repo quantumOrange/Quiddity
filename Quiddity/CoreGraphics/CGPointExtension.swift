@@ -9,14 +9,20 @@
 import Foundation
 import UIKit
 
-infix operator •
+extension Vec2 {
+    public init(_ p:CGPoint) {
+        x = Double(p.x)
+        y = Double(p.y)
+    }
+}
 
-func •(_ left: CGPoint, right: CGPoint) -> CGFloat {
-    return  left.x*right.x +  left.y*right.y
+extension CGPoint {
+    public init(_ p:Vec2) {
+        self.init(x: p.x, y: p.y)
+    }
 }
 
 public func dot(_ left: CGPoint, right: CGPoint) -> CGFloat {
-    //return left • right
     return  left.x*right.x +  left.y*right.y
 }
 
@@ -48,59 +54,8 @@ public func *(left: CGPoint, right: CATransform3D) -> CGPoint {
     return applyTransform3D(transform: right, to:left)
 }
 
-
 public func /(left: CGPoint, right: CGFloat) -> CGPoint {
     return CGPoint(x: left.x/right, y:left.y/right)
-}
-
-
-public extension CGPoint {
-
-    public func distanceTo(_ p: CGPoint) -> CGFloat {
-        let q = self
-        return  (q-p).length
-    }
-    
-    public func dot(_ q:CGPoint) -> CGFloat {
-        let p = self
-        return p.x * q.x + p.y * q.y
-    }
-    
-    public func cross(_ q:CGPoint) -> CGFloat {
-        let p = self
-        //CHECK SIGN!
-        return p.x * q.y - p.y * q.x
-    }
-    
-    public func angle(_ q:CGPoint) -> CGFloat {
-        let c = self.dot(q) / (self.length    * q.length)
-        return acos(c)
-    }
-    
-    //The range of the angle is -π to π; an angle of 0 points to the right.
-    public var angle: CGFloat {
-        return atan2(y, x)
-    }
-    
-    public var length:CGFloat {
-        return sqrt(x*x + y*y)
-    }
-    
-    public var normalized:CGPoint {
-        let l = length
-        return CGPoint(x: x/l, y: y/l)
-    }
-   
-    public var lengthSquared:CGFloat {
-        return x*x + y*y
-    }
-
-    public var isValid:Bool {
-        if self.x.isNaN || self.y.isNaN {
-            return false
-        }
-        return true
-    }
 }
 
 public func applyTransform3D(transform M: CATransform3D, to p:CGPoint) -> CGPoint {
