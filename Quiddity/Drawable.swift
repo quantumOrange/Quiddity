@@ -31,7 +31,7 @@ extension CGContext : Renderer {
     
     
     public func stroke() {
-        
+        self.strokePath()
     }
 
     public func fill() {
@@ -155,6 +155,11 @@ extension CGColor: Color {
 public struct Stroke {
     let weight:Double
     let color:Color
+    
+    public init(color:Color, weight:Double){
+        self.weight = weight
+        self.color = color
+    }
 }
 
 

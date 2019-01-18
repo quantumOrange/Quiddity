@@ -15,7 +15,7 @@ public class CanvasView:UIView {
         paintables.forEach {
             $0.paint(renderer:context)
         }
-        
+        context.drawPath(using: .eoFillStroke)
     }
     
 }

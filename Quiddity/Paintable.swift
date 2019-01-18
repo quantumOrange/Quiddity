@@ -20,15 +20,16 @@ public struct Paintable {
     let stroke:Stroke?
     
     func paint(renderer:Renderer) {
-        if let fillColor = fill {
-            renderer.setFill(fillColor)
-            drawable.draw(renderer:renderer)
-            renderer.fill()
-        }
         if let stroke = stroke {
             renderer.setStroke(stroke)
             drawable.draw(renderer:renderer)
             renderer.stroke()
         }
+        if let fillColor = fill {
+            renderer.setFill(fillColor)
+            drawable.draw(renderer:renderer)
+            renderer.fill()
+        }
+       
     }
 }

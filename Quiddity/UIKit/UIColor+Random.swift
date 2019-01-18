@@ -10,3 +10,7 @@ extension UIColor {
     }
     
 }
+
+extension UIColor:Color{
+
+}
