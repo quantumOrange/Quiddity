@@ -29,10 +29,6 @@ public struct Line {
 
 extension Line {
     
-    func evaluate(at t:Double) -> Vec2 {
-        return start + t*vector
-    }
-    
     func intersect(with line:Line) -> Vec2? {
         var intersectionPoint:Vec2?
         
@@ -48,11 +44,7 @@ extension Line {
             }
         }
         return intersectionPoint
-    }
-    
-    
-    
-    
+    }   
 }
 
 public func intersect(left:Line, right:Line) -> Vec2? {

@@ -23,7 +23,7 @@ public struct Quad {
         self.d = d
     }
     
-    //Lines
+    //Edges
     public var ab:Line {
         return Line(start: a, end: b)
     }

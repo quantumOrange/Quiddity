@@ -18,7 +18,7 @@ public struct Circle  {
         center = c
         radius = r
     }
-
+    
 }
 
 extension Circle {
@@ -33,8 +33,4 @@ extension Circle {
     
 }
 
-extension Circle {
-    public func evaluate(at t:Double) -> Vec2 {
-        return center + radius*Vec2(x:cos(t),y:sin(t))
-    }
-}
+

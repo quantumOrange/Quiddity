@@ -31,6 +31,19 @@ public struct Triangle{
         return ab.length + bc.length + ca.length
     }
     
+    //Edges
+    public var ab:Line {
+        return Line(start: a, end: b)
+    }
+    
+    public var bc:Line {
+        return Line(start: b, end: c)
+    }
+    
+    public var ca:Line {
+        return Line(start: c, end: a)
+    }
+    
 }
 
 extension Triangle {

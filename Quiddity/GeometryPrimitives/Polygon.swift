@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Polygon {
+struct Polygon: NGon {
     let verticies:[Vec2]
     
     var edges:[Line] {
@@ -17,5 +17,31 @@ struct Polygon {
     
     public init(verticies:[Vec2]) {
         self.verticies = verticies
+    }
+}
+
+protocol NGon {
+    var verticies:[Vec2] {get}
+    
+    var edges:[Line] {get}
+}
+
+extension Triangle:NGon {
+    var verticies: [Vec2] {
+        return [a,b,c]
+    }
+    
+    var edges: [Line] {
+         return [ ab, bc, ca]
+    }
+}
+
+extension Quad:NGon {
+    var verticies: [Vec2] {
+         return [a,b,c,d]
+    }
+    
+    var edges: [Line] {
+        return [ab,bc,cd,da]
     }
 }
