@@ -36,6 +36,17 @@ extension Line: Evaluable {
     }
 }
 
+extension Ray: Evaluable {
+    //TODO: fix ranges
+    var evaluableRange: Range<Double> {
+        return 0.0..<1.0
+    }
+    
+    func evaluate(at t:Double) -> Vec2 {
+        return origin + t*direction
+    }
+}
+
 extension NGon {
     var  evaluableRange:Range<Double> {
         return 0..<2*Double.pi
