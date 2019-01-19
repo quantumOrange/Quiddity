@@ -70,6 +70,15 @@ extension Triangle {
         return (u > 0) && (v > 0) && (u + v < 1)
     }
     
+    
+    var circumcenter:Vec2? {
+      
+        let p = Ray(origin: ab.midPoint, direction: ab.vector.orthogonal)
+        let q = Ray(origin: bc.midPoint, direction: bc.vector.orthogonal)
+        
+        return q.intersect(with: p)
+    }
+    
 }
 
 extension Triangle:CustomStringConvertible  {

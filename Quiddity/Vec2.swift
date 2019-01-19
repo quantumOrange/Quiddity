@@ -111,4 +111,8 @@ public extension Vec2 {
         }
         return true
     }
+    
+    public var orthogonal:Vec2 {
+        return Vec2(x: -y, y: x)
+    }
 }

@@ -19,6 +19,18 @@ public struct Circle  {
         radius = r
     }
     
+    public init?(triangle:Triangle) {
+        guard let circumcenter = triangle.circumcenter else { return nil }
+        let v = circumcenter - triangle.a
+        self.center = circumcenter
+        self.radius = v.length
+    }
+    
+    public init(line:Line) {
+        self.center = line.start
+        self.radius = line.vector.length
+    }
+    
 }
 
 extension Circle {
