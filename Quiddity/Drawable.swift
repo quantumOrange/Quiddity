@@ -68,7 +68,6 @@ extension CGContext : Renderer {
 
 public struct TestRenderer : Renderer {
     
-    
     public func setFill(_ color: Color) {
        
     }
@@ -76,7 +75,6 @@ public struct TestRenderer : Renderer {
     public func setStroke(_ stroke: Stroke) {
        
     }
-    
     
     public init() {
         
@@ -133,38 +131,3 @@ extension Array : Drawable where Element == Drawable {
         forEach{ $0.draw(renderer:renderer) }
     }
 }
-
-
-public struct RGB {
-    let r:Float
-    let b:Float
-    let c:Float
-    let a:Float
-}
-
-public protocol Color {
-    var cgColor:CGColor { get }
-}
-
-extension CGColor: Color {
-    public var cgColor: CGColor {
-        return self
-    }
-}
-
-public struct Stroke {
-    let weight:Double
-    let color:Color
-    
-    public init(color:Color, weight:Double){
-        self.weight = weight
-        self.color = color
-    }
-}
-
-
-
-
-
-
-

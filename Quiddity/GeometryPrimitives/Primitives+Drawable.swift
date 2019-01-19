@@ -31,7 +31,6 @@ extension Triangle: Drawable {
     }
 }
 
-
 extension Quad: Drawable {
     public func draw(renderer: Renderer) {
         renderer.move(to: a)

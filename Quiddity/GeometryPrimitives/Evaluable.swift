@@ -42,7 +42,7 @@ extension Ray: Evaluable {
         return 0.0..<1.0
     }
     
-    func evaluate(at t:Double) -> Vec2 {
+    public func evaluate(at t:Double) -> Vec2 {
         return origin + t*direction
     }
 }

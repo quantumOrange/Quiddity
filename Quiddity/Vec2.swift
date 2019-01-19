@@ -116,3 +116,20 @@ public extension Vec2 {
         return Vec2(x: -y, y: x)
     }
 }
+
+
+extension Vec2 {
+    
+    public static func gaussian() -> Vec2 {
+        //Box-Muller transform
+        //https://en.wikipedia.org/wiki/Box%E2%80%93Muller_transform
+        let u = Double.random(in: 0..<1)
+        let v = Double.random(in: 0..<1)
+        
+        let r = sqrt(-2.0*log(u))
+        let theta = 2*Double.pi*v
+        
+        return Vec2(x: r*cos(theta), y: r*sin(theta))
+    }
+    
+}

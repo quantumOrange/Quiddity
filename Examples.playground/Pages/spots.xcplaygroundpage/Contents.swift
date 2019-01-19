@@ -1,7 +1,7 @@
 import UIKit
 import PlaygroundSupport
 import Quiddity
-
+/*
 let drawFrame = CGRect(x:0.0,y:0.0,width:500,height:500)
 let radius = 20.0
 let rows = 10
@@ -22,5 +22,11 @@ canvasView.paintables =  grid
                     .map{ Circle(center: $0, radius: radius)}
                     .map(randomFill)
                     .values
+////////////////
+ */
+
+/*
+canvasView.paintables = [Paintable(drawable: Circle(center: center, radius: 100.0), fill:UIColor.yellow, stroke: stroke)]
+*/
 
 PlaygroundPage.current.liveView = canvasView

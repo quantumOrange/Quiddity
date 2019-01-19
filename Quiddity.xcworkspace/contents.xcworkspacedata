@@ -5,7 +5,7 @@
       location = "group:Pentagram.playground">
    </FileRef>
    <FileRef
-      location = "group:/Users/davidcrooks/Developer/sharedCode/Modules/Quiddity/Spots.playground">
+      location = "group:/Users/davidcrooks/Developer/sharedCode/Modules/Quiddity/Examples.playground">
    </FileRef>
    <FileRef
       location = "container:Quiddity.xcodeproj">

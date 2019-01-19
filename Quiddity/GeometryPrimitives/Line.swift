@@ -18,12 +18,16 @@ public struct Line {
         self.end = end
     }
     
-    var vector:Vec2 {
+    public var vector:Vec2 {
         return end - start
     }
     
     public var midPoint:Vec2 {
         return  start + 0.5*(end-start)
+    }
+    
+    public var ray:Ray {
+        return  Ray(origin: start, direction: vector)
     }
 }
 

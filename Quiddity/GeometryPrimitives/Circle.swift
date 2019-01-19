@@ -46,3 +46,41 @@ extension Circle {
 }
 
 
+extension Circle {
+    public func intersect(with c:Circle) -> [Vec2] {
+        return Quiddity.intersect(self,c)
+    }
+}
+
+public func intersect(_ c1:Circle, _ c2:Circle) -> [Vec2] {
+    //http://mathworld.wolfram.com/Circle-CircleIntersection.html
+    let d = c1.center.distanceTo(c2.center)
+    
+    let r1_sq = c1.radius*c1.radius
+    let r2_sq = c2.radius*c2.radius
+    let x = ( d*d + r1_sq - r2_sq ) / ( 2*d )
+    
+    let d_sq = d*d
+    let mm = d*d - r2_sq + r1_sq
+    let y_sq = ( 4*d_sq * r1_sq - mm * mm ) / ( 4*d_sq )
+    
+    let v_x = (c2.center - c1.center).normalized
+    let v_y = v_x.orthogonal
+    
+    let accuracy = 0.0001
+    if (y_sq>accuracy){
+        let y = sqrt(y_sq)
+
+        let v_plus = x * v_x + y * v_y
+        let v_minus = x * v_x - y * v_y
+        
+        return [ c1.center + v_plus, c1.center + v_minus ]
+    }
+    else if ( y_sq < accuracy &&  y_sq > -accuracy )
+    {
+        return [ c1.center +  x * v_x ]
+    }
+    else {
+        return []
+    }
+}

@@ -9,11 +9,11 @@
 import Foundation
 
 
-struct Ray {
-    let origin:Vec2
-    let direction:Vec2
+public struct Ray {
+    public let origin:Vec2
+    public let direction:Vec2
     
-    init(origin:Vec2,direction:Vec2) {
+    public init(origin:Vec2,direction:Vec2) {
         self.direction = direction.normalized
         self.origin = origin
     }
@@ -21,7 +21,7 @@ struct Ray {
 
 extension Ray {
     
-    func intersect(with ray:Ray) -> Vec2? {
+    public func intersect(with ray:Ray) -> Vec2? {
         var intersectionPoint:Vec2?
         
         let p = self
