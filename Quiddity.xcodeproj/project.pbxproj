@@ -19,6 +19,8 @@
 		54553FD821F25EC40020E5B6 /* Evaluable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54553FD721F25EC40020E5B6 /* Evaluable.swift */; };
 		54553FDA21F277100020E5B6 /* Ray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54553FD921F277100020E5B6 /* Ray.swift */; };
 		54553FDC21F2790F0020E5B6 /* RayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54553FDB21F2790F0020E5B6 /* RayTests.swift */; };
+		54A0910121F671BF00368C8B /* Rect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A0910021F671BF00368C8B /* Rect.swift */; };
+		54A0910321F671E600368C8B /* Square.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A0910221F671E600368C8B /* Square.swift */; };
 		54DCCB3921EDEA41006ECD64 /* Quiddity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54DCCB2F21EDEA41006ECD64 /* Quiddity.framework */; };
 		54DCCB3E21EDEA41006ECD64 /* QuiddityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DCCB3D21EDEA41006ECD64 /* QuiddityTests.swift */; };
 		54DCCB4021EDEA41006ECD64 /* Quiddity.h in Headers */ = {isa = PBXBuildFile; fileRef = 54DCCB3221EDEA41006ECD64 /* Quiddity.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -58,6 +60,8 @@
 		54553FD721F25EC40020E5B6 /* Evaluable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Evaluable.swift; sourceTree = "<group>"; };
 		54553FD921F277100020E5B6 /* Ray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ray.swift; sourceTree = "<group>"; };
 		54553FDB21F2790F0020E5B6 /* RayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RayTests.swift; sourceTree = "<group>"; };
+		54A0910021F671BF00368C8B /* Rect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rect.swift; sourceTree = "<group>"; };
+		54A0910221F671E600368C8B /* Square.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Square.swift; sourceTree = "<group>"; };
 		54DCCB2F21EDEA41006ECD64 /* Quiddity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quiddity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		54DCCB3221EDEA41006ECD64 /* Quiddity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Quiddity.h; sourceTree = "<group>"; };
 		54DCCB3321EDEA41006ECD64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -171,6 +175,8 @@
 				54553FD921F277100020E5B6 /* Ray.swift */,
 				54553FD321F116440020E5B6 /* Polygon.swift */,
 				54553FCF21F0FDE80020E5B6 /* Quad.swift */,
+				54A0910021F671BF00368C8B /* Rect.swift */,
+				54A0910221F671E600368C8B /* Square.swift */,
 				54553FCB21F0F3130020E5B6 /* Triangle.swift */,
 				54553FC721F0E8530020E5B6 /* Line.swift */,
 				54553FD521F119A40020E5B6 /* Primitives+Drawable.swift */,
@@ -292,9 +298,11 @@
 				54553FCC21F0F3130020E5B6 /* Triangle.swift in Sources */,
 				54DCCB6421F09D4B006ECD64 /* Vec2.swift in Sources */,
 				54DCCB5B21EDF698006ECD64 /* Util.swift in Sources */,
+				54A0910321F671E600368C8B /* Square.swift in Sources */,
 				54DCCB5321EDF1F9006ECD64 /* Drawable.swift in Sources */,
 				54DCCB5121EDF1F9006ECD64 /* CGSizeExtension.swift in Sources */,
 				54DCCB5821EDF1F9006ECD64 /* CanvasView.swift in Sources */,
+				54A0910121F671BF00368C8B /* Rect.swift in Sources */,
 				54DCCB6021EE69BD006ECD64 /* Paintable.swift in Sources */,
 				54553FDA21F277100020E5B6 /* Ray.swift in Sources */,
 				54553FD021F0FDE80020E5B6 /* Quad.swift in Sources */,
