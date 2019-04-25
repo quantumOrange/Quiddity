@@ -66,53 +66,53 @@ public func /(left: Vec2, right: Double) -> Vec2 {
 
 public extension Vec2 {
     
-    public func distanceTo(_ p: Vec2) -> Double {
+    func distanceTo(_ p: Vec2) -> Double {
         let q = self
         return  (q-p).length
     }
     
-    public func dot(_ q:Vec2) -> Double {
+    func dot(_ q:Vec2) -> Double {
         let p = self
         return p.x * q.x + p.y * q.y
     }
     
-    public func cross(_ q:Vec2) -> Double {
+    func cross(_ q:Vec2) -> Double {
         let p = self
         //CHECK SIGN!
         return p.x * q.y - p.y * q.x
     }
     
-    public func angle(_ q:Vec2) -> Double {
+    func angle(_ q:Vec2) -> Double {
         let c = self.dot(q) / (self.length    * q.length)
         return acos(c)
     }
     
     //The range of the angle is -π to π; an angle of 0 points to the right.
-    public var angle: Double {
+    var angle: Double {
         return atan2(y, x)
     }
     
-    public var length:Double {
+    var length:Double {
         return sqrt(x*x + y*y)
     }
     
-    public var normalized:Vec2 {
+    var normalized:Vec2 {
         let l = length
         return Vec2(x: x/l, y: y/l)
     }
     
-    public var lengthSquared:Double {
+    var lengthSquared:Double {
         return x*x + y*y
     }
     
-    public var isValid:Bool {
+    var isValid:Bool {
         if self.x.isNaN || self.y.isNaN {
             return false
         }
         return true
     }
     
-    public var orthogonal:Vec2 {
+    var orthogonal:Vec2 {
         return Vec2(x: -y, y: x)
     }
 }

@@ -72,7 +72,7 @@ class QuiddityTests: XCTestCase {
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
-            let s = testPoints.map{ 20.0*$0.normalized }
+            _ = testPoints.map{ 20.0*$0.normalized }
                 .map { Circle(center: $0, radius: 5.0)
             }
         }
