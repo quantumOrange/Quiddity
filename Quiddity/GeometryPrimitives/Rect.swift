@@ -20,3 +20,9 @@ struct Rect {
     }
     
 }
+
+extension Rect {
+    var area:Double {
+        return width * height
+    }
+}

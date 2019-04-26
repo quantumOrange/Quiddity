@@ -9,7 +9,7 @@
 import XCTest
 @testable import Quiddity
 
-class TestLines: XCTestCase {
+class LineTests: XCTestCase {
     let tolerance = 0.00001
     
     override func setUp() {

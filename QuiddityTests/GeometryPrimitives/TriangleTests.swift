@@ -10,7 +10,9 @@ import XCTest
 @testable import Quiddity
 
 class TriangleTests: XCTestCase {
+    
     let tolerance = 0.0001
+    
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -19,7 +21,7 @@ class TriangleTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testInside() {
+    func testContains() {
         let triangle = Triangle(A: Vec2.zero, B: Vec2(x:0.0,y:1.0), C: Vec2(x:2.0,y:0.0))
         
         let outside1 =  Vec2(x:-0.5,y:1.0)
@@ -55,7 +57,6 @@ class TriangleTests: XCTestCase {
         
         XCTAssertEqual(d1, d2, accuracy:tolerance,"Circumcenters should be egual equdistant from triangle veryticies")
         XCTAssertEqual(d2, d3, accuracy:tolerance,"Circumcenters should be egual equdistant from triangle veryticies")
-        
         
     }
 
