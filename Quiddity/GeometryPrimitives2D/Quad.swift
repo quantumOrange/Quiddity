@@ -94,20 +94,35 @@ public struct Quad {
     }
     
     public var area:Double {
-        let t1 = Triangle(A: a, B: b, C: c)
-        let t2 = Triangle(A: b, B: c, C: d)
+        let (t1,t2) = triangulate()
+        
         return t1.area + t2.area
     }
     
+    func triangulate() -> (Triangle,Triangle) {
+        let lineAC = Line(start: a,end: c)
+        let lineDB = Line(start: d,end: b)
+        
+        let rayAC = Ray(lineSegment: lineAC)
+        
+        if let _ = rayAC.intersect(with: lineDB){
+            //both trinagle share commone verticies  A and C
+            return ( Triangle(A: a, B: b, C: c),Triangle(A: a, B: c, C: d))
+        }
+        else {
+            //both trinagle share commone verticies  B and D
+            return ( Triangle(A: a, B: b, C: d),Triangle(A: b, B: c, C: d))
+        }
+    }
+    
     func containsPoint(_ p:Vec2) -> Bool {
-        //this is only valid if the quad is convex
         
-        let in1 = Triangle(A: a, B: b, C: c).contains(point:p)
-        let in2 = Triangle(A: b, B: c, C: d).contains(point:p)
-        let in3 = Triangle(A: c, B: d, C: a).contains(point:p)
-        let in4 = Triangle(A: d, B: a, C: b).contains(point:p)
+        let (triangle1,triangle2) = triangulate()
         
-        return in1 || in2 || in3 || in4
+        
+        
+        return triangle1.contains(point: p) || triangle2.contains(point: p)
+       
     }
 
     public var isValid:Bool {

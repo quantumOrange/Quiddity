@@ -17,11 +17,17 @@ public struct Ray {
         self.direction = direction.normalized
         self.origin = origin
     }
+    
+    public init(lineSegment line:Line) {
+        self.direction = line.vector.normalized
+        self.origin = line.start
+    }
 }
 
 extension Ray {
     
     public func intersect(with ray:Ray) -> Vec2? {
+        
         var intersectionPoint:Vec2?
         
         let p = self
@@ -32,6 +38,27 @@ extension Ray {
         if denominator  != 0 {
             let t = (q.origin - p.origin).cross(q.direction)/denominator
             intersectionPoint = self.evaluate(at:t)
+        }
+        
+        return intersectionPoint
+        
+    }
+    
+    func intersect(with line:Line) -> Vec2? {
+        
+        var intersectionPoint:Vec2?
+        
+        let p = self
+        let q = line
+        
+        let denominator = (p.direction).cross(q.vector)
+        
+        if denominator  != 0 {
+            let t = (q.start - p.origin).cross(q.vector)/denominator
+            let u = (q.start - p.origin).cross(p.direction)/denominator
+            if (u > 0.0 && u < 1.0){
+                intersectionPoint = self.evaluate(at:t)
+            }
         }
         
         return intersectionPoint

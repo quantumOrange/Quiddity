@@ -44,13 +44,15 @@ class QuadTests: XCTestCase {
         let out2 = Vec2(x: 1,y: 1)
         let out3 = Vec2(x: 1.1,y: -1.1)
         
-        let inside1 = Vec2(x: 0.5,y: 0.5)
-        let inside2 = Vec2(x: 0.25,y: 0.4)
+        let inside1 = Vec2(x: 0.51,y: -0.49)
+        let inside2 = Vec2(x: 0.5,y: -0.5) // This is on the diagonal of the two triangles of quad triangulation - tricky!
+        let inside3 = Vec2(x: 0.25,y: -0.4)
         
         XCTAssertFalse(quad.isConvex)
         
         XCTAssertTrue(quad.containsPoint(inside1))
         XCTAssertTrue(quad.containsPoint(inside2))
+        XCTAssertTrue(quad.containsPoint(inside3))
         
         XCTAssertFalse(quad.containsPoint(out1))
         XCTAssertFalse(quad.containsPoint(out2))
@@ -72,11 +74,21 @@ class QuadTests: XCTestCase {
         
     }
     
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
+    func testPerformanceContainsPoint() {
+        let range = -5.0...5.0
+        
+        let testPoints = (0...100000).map{ _ in
+            return Vec2(x: Double.random(in: range), y: Double.random(in: range))
+        }
+        
+        let convexQuad = Quad(a: Vec2.zero, b: Vec2(x: 2,y: 2), c: Vec2(x: 3,y: -1), d: Vec2(x:1 ,y: -1))
+        let concaveQuad = Quad(a: Vec2.zero, b: Vec2(x: 3,y: 0), c: Vec2(x: 1,y: -1), d: Vec2(x: 0,y: -3))
+        
         self.measure {
-            // Put the code you want to measure the time of here.
+            testPoints.forEach{
+                _ = convexQuad.containsPoint($0)
+                _ = concaveQuad.containsPoint($0)
+            }
         }
     }
 
