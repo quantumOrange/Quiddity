@@ -26,7 +26,7 @@ public struct Circle  {
         self.radius = v.length
     }
     
-    public init(line:Line) {
+    public init(line:LineSegment) {
         self.center = line.start
         self.radius = line.vector.length
     }
@@ -35,7 +35,7 @@ public struct Circle  {
 
 extension Circle {
     
-    public var perimeter:Double {
+    public var circumferance:Double {
         return 2 * .pi * radius
     }
     

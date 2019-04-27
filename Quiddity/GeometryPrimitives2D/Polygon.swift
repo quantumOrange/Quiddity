@@ -11,8 +11,8 @@ import Foundation
 struct Polygon: NGon {
     let verticies:[Vec2]
     
-    var edges:[Line] {
-        return zip(verticies.dropLast(),verticies.dropFirst()).map(Line.init)
+    var edges:[LineSegment] {
+        return zip(verticies.dropLast(),verticies.dropFirst()).map(LineSegment.init)
     }
     
     public init(verticies:[Vec2]) {
@@ -23,7 +23,7 @@ struct Polygon: NGon {
 protocol NGon {
     var verticies:[Vec2] {get}
     
-    var edges:[Line] {get}
+    var edges:[LineSegment] {get}
 }
 
 extension Triangle:NGon {
@@ -31,7 +31,7 @@ extension Triangle:NGon {
         return [a,b,c]
     }
     
-    var edges: [Line] {
+    var edges: [LineSegment] {
          return [ ab, bc, ca]
     }
 }
@@ -41,7 +41,7 @@ extension Quad:NGon {
          return [a,b,c,d]
     }
     
-    var edges: [Line] {
+    var edges: [LineSegment] {
         return [ab,bc,cd,da]
     }
 }

@@ -32,16 +32,16 @@ public struct Triangle{
     }
     
     //Edges
-    public var ab:Line {
-        return Line(start: a, end: b)
+    public var ab:LineSegment {
+        return LineSegment(start: a, end: b)
     }
     
-    public var bc:Line {
-        return Line(start: b, end: c)
+    public var bc:LineSegment {
+        return LineSegment(start: b, end: c)
     }
     
-    public var ca:Line {
-        return Line(start: c, end: a)
+    public var ca:LineSegment {
+        return LineSegment(start: c, end: a)
     }
     
 }
@@ -73,8 +73,8 @@ extension Triangle {
     
     var circumcenter:Vec2? {
       
-        let p = Ray(origin: ab.midPoint, direction: ab.vector.orthogonal)
-        let q = Ray(origin: bc.midPoint, direction: bc.vector.orthogonal)
+        let p = Line(origin: ab.midPoint, direction: ab.vector.orthogonal)
+        let q = Line(origin: bc.midPoint, direction: bc.vector.orthogonal)
         
         return q.intersect(with: p)
     }

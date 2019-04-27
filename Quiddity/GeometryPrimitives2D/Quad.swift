@@ -24,41 +24,41 @@ public struct Quad {
     }
     
     //Edges
-    public var ab:Line {
-        return Line(start: a, end: b)
+    public var ab:LineSegment {
+        return LineSegment(start: a, end: b)
     }
     
-    public var bc:Line {
-        return Line(start: b, end: c)
+    public var bc:LineSegment {
+        return LineSegment(start: b, end: c)
     }
     
-    public var cd:Line {
-        return Line(start: c, end: d)
+    public var cd:LineSegment {
+        return LineSegment(start: c, end: d)
     }
     
-    public var da:Line {
-        return Line(start: d, end: a)
+    public var da:LineSegment {
+        return LineSegment(start: d, end: a)
     }
     
     //Diagonals
-    public var ac:Line {
-        return Line(start: a, end: c)
+    public var ac:LineSegment {
+        return LineSegment(start: a, end: c)
     }
     
-    public var db:Line {
-        return Line(start: d, end: b)
+    public var db:LineSegment {
+        return LineSegment(start: d, end: b)
     }
     
     public var center:Vec2? {
-        let lineAC = Line(start: a,end: c)
-        let lineDB = Line(start: d,end: b)
+        let lineAC = LineSegment(start: a,end: c)
+        let lineDB = LineSegment(start: d,end: b)
         
         return lineAC.intersect(with:lineDB)
     }
     
     public var centroid:Vec2 {
         //The centroid is the midpoint of the line joining the midpoints of the diagonals:
-        return Line(start: ac.midPoint,end: db.midPoint).midPoint
+        return LineSegment(start: ac.midPoint,end: db.midPoint).midPoint
     }
     
     //Mark: -interior angles
@@ -80,8 +80,8 @@ public struct Quad {
     }
     
     public var isConvex:Bool  {
-        let lineAC = Line(start: a,end: c)
-        let lineDB = Line(start: d,end: b)
+        let lineAC = LineSegment(start: a,end: c)
+        let lineDB = LineSegment(start: d,end: b)
         
         //a quadrilatteral is convex iff its diagonal line segments interesect
         if let _ = lineAC.intersect(with:lineDB){
@@ -100,18 +100,18 @@ public struct Quad {
     }
     
     func triangulate() -> (Triangle,Triangle) {
-        let lineAC = Line(start: a,end: c)
-        let lineDB = Line(start: d,end: b)
+        let lineAC = LineSegment(start: a,end: c)
+        let lineDB = LineSegment(start: d,end: b)
         
-        let rayAC = Ray(lineSegment: lineAC)
+        let rayAC = Line(lineSegment: lineAC)
         
         if let _ = rayAC.intersect(with: lineDB){
-            //both trinagle share commone verticies  A and C
-            return ( Triangle(A: a, B: b, C: c),Triangle(A: a, B: c, C: d))
+            //both trinagles share commone verticies A and C
+            return (Triangle(A: a, B: b, C: c),Triangle(A: a, B: c, C: d))
         }
         else {
-            //both trinagle share commone verticies  B and D
-            return ( Triangle(A: a, B: b, C: d),Triangle(A: b, B: c, C: d))
+            //both trinagles share common verticies B and D
+            return (Triangle(A: a, B: b, C: d),Triangle(A: b, B: c, C: d))
         }
     }
     

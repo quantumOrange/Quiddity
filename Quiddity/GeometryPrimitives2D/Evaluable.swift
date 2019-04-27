@@ -26,7 +26,7 @@ extension Circle: Evaluable {
     }
 }
 
-extension Line: Evaluable {
+extension LineSegment: Evaluable {
     var evaluableRange: Range<Double> {
         return 0.0..<1.0
     }
@@ -36,7 +36,7 @@ extension Line: Evaluable {
     }
 }
 
-extension Ray: Evaluable {
+extension Line: Evaluable {
     //TODO: fix ranges
     var evaluableRange: Range<Double> {
         return 0.0..<1.0

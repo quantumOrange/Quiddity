@@ -15,7 +15,7 @@ extension Circle : Drawable {
 }
 
 
-extension Line: Drawable {
+extension LineSegment: Drawable {
     public func draw(renderer: Renderer) {
         renderer.move(to: start)
         renderer.addLine(to: end)

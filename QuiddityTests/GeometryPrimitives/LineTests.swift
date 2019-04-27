@@ -1,17 +1,16 @@
 //
-//  TestLines.swift
+//  RayTests.swift
 //  QuiddityTests
 //
-//  Created by David Crooks on 17/01/2019.
+//  Created by David Crooks on 18/01/2019.
 //  Copyright © 2019 David Crooks. All rights reserved.
 //
 
 import XCTest
 @testable import Quiddity
 
-class LineTests: XCTestCase {
-    let tolerance = 0.00001
-    
+class RayTests: XCTestCase {
+let tolerance = 0.00001
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -21,22 +20,27 @@ class LineTests: XCTestCase {
     }
 
     func testIntersection() {
-        let p = Line(start:Vec2(x: -1.0, y: 1.0),end:Vec2(x: 1.0, y: -1.0))
-        let q = Line(start:Vec2(x: -1.0, y: 0.0),end:Vec2(x: 1.0, y: 0.0))
-      
+        let v = Vec2(x:1.0,y:1.0)
+        let p = Line(origin:Vec2.zero,direction:v)
+        let q = Line(origin:Vec2(x:-1.0,y:1.0),direction:Vec2(x:1.0,y:0.0))
+        
+        let excpectedIntersection = Vec2(x:1.0,y:1.0)
+        
         let intersectionPQ = p.intersect(with:q)
         XCTAssertNotNil(intersectionPQ, "P and Q should intersect")
         
-        if let v = intersectionPQ {
-            XCTAssertEqual(v.x, 0.0, accuracy: tolerance, "P and Q should intesect at the origin")
-            XCTAssertEqual(v.y, 0.0, accuracy: tolerance, "P and Q should intesect at the origin")
+        if let v = intersectionPQ
+        {
+            XCTAssertEqual(v.x, excpectedIntersection.x, accuracy: tolerance, "P and Q should intesect \(excpectedIntersection)")
+            XCTAssertEqual(v.y, excpectedIntersection.y, accuracy: tolerance, "P and Q should intesect at \(excpectedIntersection)")
         }
     }
     
     func testNonIntersection() {
-        let p = Line(start:Vec2(x: -1.0, y: 0.0),end:Vec2(x: 1.0, y: 1.0))
-        let q = Line(start:Vec2(x: 0.0, y: -1.0),end:Vec2(x: 1.0, y: 0.0))
-       
+        let v = Vec2(x:1.0,y:1.0)
+        let p = Line(origin:Vec2.zero,direction:v)
+        let q = Line(origin:Vec2.zero,direction:v)
+        
         let intersectionPQ = p.intersect(with:q)
         XCTAssertNil(intersectionPQ, "P and Q should not intersect")
     }

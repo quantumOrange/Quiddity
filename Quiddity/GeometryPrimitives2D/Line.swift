@@ -1,58 +1,60 @@
 //
-//  Line.swift
+//  Ray.swift
 //  Quiddity
 //
-//  Created by David Crooks on 17/01/2019.
+//  Created by David Crooks on 18/01/2019.
 //  Copyright © 2019 David Crooks. All rights reserved.
 //
 
 import Foundation
 
+
 public struct Line {
+    public let origin:Vec2
+    public let direction:Vec2
     
-    public let start:Vec2
-    public let end:Vec2
-    
-    public init(start:Vec2, end:Vec2) {
-        self.start = start
-        self.end = end
+    public init(origin:Vec2,direction:Vec2) {
+        self.direction = direction.normalized
+        self.origin = origin
     }
     
-    public var vector:Vec2 {
-        return end - start
-    }
-    
-    public var midPoint:Vec2 {
-        return  start + 0.5*(end-start)
-    }
-    
-    public var ray:Ray {
-        return  Ray(origin: start, direction: vector)
+    public init(lineSegment line:LineSegment) {
+        self.direction = line.vector.normalized
+        self.origin = line.start
     }
 }
 
 extension Line {
     
-    func intersect(with line:Line) -> Vec2? {
+    public func intersect(with line:Line) -> Vec2? {
+        
         var intersectionPoint:Vec2?
         
-        let p = self
-        let q = line
+        let denominator = (self.direction).cross(line.direction)
         
-        let denominator = (p.vector).cross(q.vector)
         if denominator  != 0 {
-            let t = (q.start - p.start).cross(q.vector)/denominator
-            let u = (q.start - p.start).cross(p.vector)/denominator
-            if ((t > 0.0 && t < 1.0) &&  (u > 0.0 && u < 1.0)) {
+            let t = (line.origin - self.origin).cross(line.direction)/denominator
+            intersectionPoint = self.evaluate(at:t)
+        }
+        
+        return intersectionPoint
+        
+    }
+    
+    func intersect(with line:LineSegment) -> Vec2? {
+        
+        var intersectionPoint:Vec2?
+        
+        let denominator = (self.direction).cross(line.vector)
+        
+        if denominator  != 0 {
+            let t = (line.start - self.origin).cross(line.vector)/denominator
+            let u = (line.start - self.origin).cross(self.direction)/denominator
+            if (u > 0.0 && u < 1.0){
                 intersectionPoint = self.evaluate(at:t)
             }
         }
+        
         return intersectionPoint
-    }   
+    }
 }
-
-public func intersect(left:Line, right:Line) -> Vec2? {
-    return left.intersect(with: right)
-}
-
-
