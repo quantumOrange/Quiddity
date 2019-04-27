@@ -148,7 +148,7 @@
 				5431F20721F39133002642D9 /* Style.swift */,
 				54DCCB5F21EE69BD006ECD64 /* Paintable.swift */,
 				54DCCB5C21EE0124006ECD64 /* CoreGraphics */,
-				54DCCB5D21EE0149006ECD64 /* GeometryPrimitives */,
+				54DCCB5D21EE0149006ECD64 /* GeometryPrimitives2D */,
 				54DCCB5921EDF25E006ECD64 /* UIKit */,
 				54DCCB3221EDEA41006ECD64 /* Quiddity.h */,
 				54DCCB3321EDEA41006ECD64 /* Info.plist */,
@@ -185,7 +185,7 @@
 			path = CoreGraphics;
 			sourceTree = "<group>";
 		};
-		54DCCB5D21EE0149006ECD64 /* GeometryPrimitives */ = {
+		54DCCB5D21EE0149006ECD64 /* GeometryPrimitives2D */ = {
 			isa = PBXGroup;
 			children = (
 				54DCCB4E21EDF1F9006ECD64 /* Circle.swift */,
@@ -199,7 +199,7 @@
 				54553FD521F119A40020E5B6 /* Primitives+Drawable.swift */,
 				54553FD721F25EC40020E5B6 /* Evaluable.swift */,
 			);
-			path = GeometryPrimitives;
+			path = GeometryPrimitives2D;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
