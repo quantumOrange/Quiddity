@@ -19,25 +19,6 @@ class QuadTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testContainsPointsConcave() {
-        let quad = Quad(a: Vec2.zero, b: Vec2(x: 2,y: 0.2), c: Vec2(x: 2,y: 2), d: Vec2(x: 0.2,y: 2))
-        
-        let out1 = Vec2(x: 2,y: 0)
-        let out2 = Vec2(x: 3,y: 4)
-        let out3 = Vec2(x: -3,y: -4)
-        
-        let inside1 = Vec2(x: 1.1,y: 1.2)
-        let inside2 = Vec2(x: 0.3,y: 0.4)
-        
-        XCTAssertTrue(quad.containsPoint(inside1))
-        XCTAssertTrue(quad.containsPoint(inside2))
-        
-        XCTAssertFalse(quad.containsPoint(out1))
-        XCTAssertFalse(quad.containsPoint(out2))
-        XCTAssertFalse(quad.containsPoint(out3))
-        
-    }
-    
     func testContainsPointsConvex() {
         let quad = Quad(a: Vec2.zero, b: Vec2(x: 2,y: 0.2), c: Vec2(x: 2,y: 2), d: Vec2(x: 0.2,y: 2))
         
@@ -56,12 +37,32 @@ class QuadTests: XCTestCase {
         XCTAssertFalse(quad.containsPoint(out3))
     }
     
+    func testContainsPointsConcave() {
+         let quad = Quad(a: Vec2.zero, b: Vec2(x: 3,y: 0), c: Vec2(x: 1,y: -1), d: Vec2(x: 0,y: -3))
+        
+        let out1 = Vec2(x: -1,y: -1)
+        let out2 = Vec2(x: 1,y: 1)
+        let out3 = Vec2(x: 1.1,y: -1.1)
+        
+        let inside1 = Vec2(x: 0.5,y: 0.5)
+        let inside2 = Vec2(x: 0.25,y: 0.4)
+        
+        XCTAssertFalse(quad.isConvex)
+        
+        XCTAssertTrue(quad.containsPoint(inside1))
+        XCTAssertTrue(quad.containsPoint(inside2))
+        
+        XCTAssertFalse(quad.containsPoint(out1))
+        XCTAssertFalse(quad.containsPoint(out2))
+        XCTAssertFalse(quad.containsPoint(out3))
+    }
+    
     func testIsConvex(){
         
         let convexQuad1 = Quad(a: Vec2.zero, b: Vec2(x: 2,y: 2), c: Vec2(x: 3,y: -1), d: Vec2(x:1 ,y: -1))
         let convexQuad2 = Quad(a: Vec2(x: -1,y: -1), b: Vec2(x: -1,y: 1), c: Vec2(x: 2,y: 2), d: Vec2(x: 2,y: -1))
         
-        let concaveQuad1 = Quad(a: Vec2.zero, b: Vec2(x: 3,y: 0), c: Vec2(x: -1,y: -1), d: Vec2(x: 0,y: -3))
+        let concaveQuad1 = Quad(a: Vec2.zero, b: Vec2(x: 3,y: 0), c: Vec2(x: 1,y: -1), d: Vec2(x: 0,y: -3))
         let concaveQuad2 = Quad(a: Vec2(x: -2,y: -2), b: Vec2(x: 2,y: -2), c: Vec2(x: -2,y: 2), d: Vec2(x: -1,y: 1))
         
         XCTAssertTrue(convexQuad1.isConvex, "\(convexQuad1) should be  convex")
@@ -70,7 +71,6 @@ class QuadTests: XCTestCase {
         XCTAssertFalse(concaveQuad2.isConvex, "\(concaveQuad2) should be  concave")
         
     }
-    
     
 
     func testPerformanceExample() {
