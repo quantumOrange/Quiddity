@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Vec2 {
+public struct Vec2:Equatable {
     public let x:Double
     public let y:Double
     
@@ -29,6 +29,12 @@ public struct Vec2 {
     
     static var zero:Vec2 {
         return Vec2(x: 0.0, y: 0.0)
+    }
+}
+
+extension Vec2 {
+    public static func == (lhs: Vec2, rhs:Vec2) -> Bool {
+        return lhs.x == rhs.x && lhs.y == rhs.y
     }
 }
 

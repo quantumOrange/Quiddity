@@ -9,6 +9,7 @@
 import Foundation
 
 struct Polygon: NGon {
+    
     let verticies:[Vec2]
     
     var edges:[LineSegment] {
@@ -18,12 +19,41 @@ struct Polygon: NGon {
     public init(verticies:[Vec2]) {
         self.verticies = verticies
     }
+    
+    func cutEar() -> (ear:Triangle?,poly:Polygon){
+        //TODO: fix this. Cut off an ear, return the ear and remaining polygon
+        
+        return (nil,self)
+    }
+    
+    func triangulate() -> [Triangle] {
+       
+        let (triangle, polygon)  = cutEar()
+        
+        if let triangle = triangle {
+            return polygon.triangulate() + [triangle]
+        }
+        else if (polygon.verticies.count == 3 ) {
+            return [Triangle(A: polygon.verticies[0], B: polygon.verticies[1], C: polygon.verticies[2])]
+        }
+        else {
+            return []
+        }
+        
+    }
+
 }
 
-protocol NGon {
+protocol NGon:Equatable {
     var verticies:[Vec2] {get}
     
     var edges:[LineSegment] {get}
+}
+
+extension NGon {
+    public static func == (lhs: Self, rhs: Self) -> Bool {
+        return lhs.verticies.isEqualUpToPermutation(other:rhs.verticies)
+    }
 }
 
 extension Triangle:NGon {

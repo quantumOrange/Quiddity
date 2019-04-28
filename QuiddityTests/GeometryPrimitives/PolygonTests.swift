@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import Quiddity
 
 class PolygonTests: XCTestCase {
 
@@ -22,7 +23,17 @@ class PolygonTests: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
-
+    func testEquatable(){
+        let vertices = [Vec2(x: 1,y: 1),Vec2(x: 1,y: -1),Vec2(x: -1,y: -1),Vec2(x: -1,y: 1)]
+        
+        let poly1 = Polygon(verticies: vertices)
+        let poly2 = Polygon(verticies: permute(vertices,by: 1))
+        let poly3 = Polygon(verticies:  [Vec2(x: 1,y: 1),Vec2(x: 1,y: -1),Vec2(x: -1,y: -1),Vec2(x: -1,y: 1.1)])
+        
+        XCTAssertTrue( poly1 == poly2 ,  "These two polygons are the same")
+        XCTAssertFalse( poly1 == poly3 ,  "These two polygons are not the same")
+    }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {

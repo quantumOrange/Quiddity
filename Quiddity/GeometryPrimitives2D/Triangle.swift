@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Triangle{
+public struct Triangle {
     
     public let a:Vec2
     public var b:Vec2
@@ -84,4 +84,6 @@ extension Triangle {
 extension Triangle:CustomStringConvertible  {
     public var description: String { get { return "Triangle A:\(a) B:\(b) C:(\(c) " } }
 }
+
+
 

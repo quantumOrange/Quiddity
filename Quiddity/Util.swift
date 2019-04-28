@@ -19,3 +19,14 @@ public func permute<T>(_ array:[T],by n:Int)-> [T] {
     
     return permutedArray
 }
+
+extension Array where Element:Equatable {
+    func isEqualUpToPermutation(other:[Element]) -> Bool {
+        for i in (0..<count) {
+            if self == permute(other, by: i) {
+                return true
+            }
+        }
+        return false
+    }
+}
