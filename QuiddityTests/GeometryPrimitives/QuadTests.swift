@@ -74,6 +74,18 @@ class QuadTests: XCTestCase {
         
     }
     
+    func testAngles(){
+        let tolerance  =  0.0001
+        let quad = Quad(a: Vec2.zero, b: Vec2(x: 0,y: 2), c: Vec2(x:1 ,y: 1), d: Vec2(x:1 ,y: 0))
+        let rightAngle = Double.pi/2.0
+        
+        XCTAssertEqual(quad.angleA, rightAngle , accuracy: tolerance, "A should be a right angle")
+        XCTAssertEqual(quad.angleB, Double.pi/4.0 , accuracy: tolerance, "B should be a 45 degrees")
+        XCTAssertEqual(quad.angleC, 3*Double.pi/4.0  , accuracy: tolerance, "C should be a 135 degrees")
+        XCTAssertEqual(quad.angleD, rightAngle , accuracy: tolerance, "D should be a right angle")
+        
+    }
+    
     func testPerformanceContainsPoint() {
         let range = -5.0...5.0
         

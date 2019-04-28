@@ -13,6 +13,7 @@
 		544C33B82273A04E00AB977C /* QuadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544C33B72273A04E00AB977C /* QuadTests.swift */; };
 		544C33BB2273A6A300AB977C /* UtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544C33BA2273A6A300AB977C /* UtilsTests.swift */; };
 		544C33BD2274DD8000AB977C /* CircleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544C33BC2274DD8000AB977C /* CircleTests.swift */; };
+		544C33BF2274E2FC00AB977C /* PolygonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544C33BE2274E2FC00AB977C /* PolygonTests.swift */; };
 		54553FC821F0E8530020E5B6 /* LineSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54553FC721F0E8530020E5B6 /* LineSegment.swift */; };
 		54553FCA21F0E9BF0020E5B6 /* LineSegmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54553FC921F0E9BF0020E5B6 /* LineSegmentTests.swift */; };
 		54553FCC21F0F3130020E5B6 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54553FCB21F0F3130020E5B6 /* Triangle.swift */; };
@@ -58,6 +59,7 @@
 		544C33B72273A04E00AB977C /* QuadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuadTests.swift; sourceTree = "<group>"; };
 		544C33BA2273A6A300AB977C /* UtilsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilsTests.swift; sourceTree = "<group>"; };
 		544C33BC2274DD8000AB977C /* CircleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleTests.swift; sourceTree = "<group>"; };
+		544C33BE2274E2FC00AB977C /* PolygonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolygonTests.swift; sourceTree = "<group>"; };
 		54553FC721F0E8530020E5B6 /* LineSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineSegment.swift; sourceTree = "<group>"; };
 		54553FC921F0E9BF0020E5B6 /* LineSegmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineSegmentTests.swift; sourceTree = "<group>"; };
 		54553FCB21F0F3130020E5B6 /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				54553FC921F0E9BF0020E5B6 /* LineSegmentTests.swift */,
+				544C33BE2274E2FC00AB977C /* PolygonTests.swift */,
 				54553FDB21F2790F0020E5B6 /* LineTests.swift */,
 				54553FCD21F0F5DC0020E5B6 /* TriangleTests.swift */,
 				544C33B522739EA100AB977C /* RectTests.swift */,
@@ -348,6 +351,7 @@
 				544C33BB2273A6A300AB977C /* UtilsTests.swift in Sources */,
 				544C33BD2274DD8000AB977C /* CircleTests.swift in Sources */,
 				54553FDC21F2790F0020E5B6 /* LineTests.swift in Sources */,
+				544C33BF2274E2FC00AB977C /* PolygonTests.swift in Sources */,
 				54DCCB3E21EDEA41006ECD64 /* QuiddityTests.swift in Sources */,
 				544C33B622739EA100AB977C /* RectTests.swift in Sources */,
 				54553FCA21F0E9BF0020E5B6 /* LineSegmentTests.swift in Sources */,
