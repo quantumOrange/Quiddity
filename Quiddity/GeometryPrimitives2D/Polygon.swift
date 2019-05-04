@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct Polygon: NGon {
+public struct Polygon: NGon {
     
-    let verticies:[Vec2]
+    public let verticies:[Vec2]
     
-    var edges:[LineSegment] {
+    public var edges:[LineSegment] {
         return zip(verticies.dropLast(),verticies.dropFirst()).map(LineSegment.init)
     }
     
@@ -20,13 +20,26 @@ struct Polygon: NGon {
         self.verticies = verticies
     }
     
+    func isEar(index:Int) -> Bool {
+        //1) check that the vertex is convex
+        //2) check that none of the other vertices of the polygon are inside the triangle
+        return false;
+    }
+    
     func cutEar() -> (ear:Triangle?,poly:Polygon){
         //TODO: fix this. Cut off an ear, return the ear and remaining polygon
-        
+        for i in 0..<verticies.count {
+            if isEar(index: i){
+                var reducedVerticies = verticies
+                let earVertex = reducedVerticies.remove(at: i)
+                return ( Triangle(A: vertex(at: i-1), B: earVertex, C: vertex(at: i+1)),
+                         Polygon(verticies:reducedVerticies ))
+            }
+        }
         return (nil,self)
     }
     
-    func triangulate() -> [Triangle] {
+    public func triangulate() -> [Triangle] {
        
         let (triangle, polygon)  = cutEar()
         
@@ -45,9 +58,11 @@ struct Polygon: NGon {
 }
 
 protocol NGon:Equatable {
+    
     var verticies:[Vec2] {get}
     
     var edges:[LineSegment] {get}
+    
 }
 
 extension NGon {
@@ -56,6 +71,21 @@ extension NGon {
     }
 }
 
+extension NGon {
+    
+    func vertex(at index:Int) -> Vec2 {
+        let i = index % verticies.count
+        return verticies[i]
+    }
+    
+    func interiorAngle(at i:Int) -> Double {
+        let v1 = vertex(at:i) - vertex(at:i-1)
+        let v2 = vertex(at:i+1) - vertex(at:i)
+        //interior???
+        return Double.pi - v1.angle(v2)
+    }
+    
+}
 extension Triangle:NGon {
     var verticies: [Vec2] {
         return [a,b,c]
