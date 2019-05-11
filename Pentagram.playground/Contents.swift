@@ -10,9 +10,9 @@ let drawFrame = CGRect(x:0.0,y:0.0,width:2*halfWidth,height:2*halfWidth)
 
 let circle = Circle(center: Vec2(x:halfWidth, y:halfWidth), radius: radius)
 
-func ngram(verticies:[Vec2]) -> ([Line],[Vec2],[Triangle]) {
+func ngram(verticies:[Vec2]) -> ([LineSegment],[Vec2],[Triangle]) {
     let lines = zip(verticies, permute(verticies,by: 2))
-        .map(Line.init)
+        .map(LineSegment.init)
     
     let intersections = zip(lines, permute(lines,by: 1))
         .compactMap(intersect)

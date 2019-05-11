@@ -20,10 +20,36 @@ public struct Polygon: NGon {
         self.verticies = verticies
     }
     
-    func isEar(index:Int) -> Bool {
+    func isEar(index i:Int) -> Bool {
+        func containsOtherVertex()->Bool{
+            
+            let triangle = Triangle(A: vertex(at:i-1 ), B: vertex(at:i-1 ), C: vertex(at:i+1 ))
+            
+            for j in 0..<verticies.count{
+                //exclude the triangles own verticies
+                let i_plus = ( verticies.count + i + 1 ) % verticies.count
+                let i_minus = ( verticies.count + i - 1 ) % verticies.count
+                let isTriangleVertex  = ( j == i || j == i_plus || j == i_minus )
+                
+                if !isTriangleVertex {
+                    if triangle.contains(point: vertex(at: j)) {
+                        //this other vertex is inside the triangle of the vertex we are checking
+                        return true
+                    }
+                }
+            }
+            
+            //none of the other vertices is inside the triangle of the vertex we are checking
+            return false
+        }
+        
         //1) check that the vertex is convex
+        let convex = interiorAngle(at: i) < Double.pi
+        
         //2) check that none of the other vertices of the polygon are inside the triangle
-        return false;
+        let containsVertex = containsOtherVertex()
+        
+        return convex && !containsVertex;
     }
     
     func cutEar() -> (ear:Triangle?,poly:Polygon){
@@ -74,18 +100,24 @@ extension NGon {
 extension NGon {
     
     func vertex(at index:Int) -> Vec2 {
-        let i = index % verticies.count
+        let i = ( verticies.count + index ) % verticies.count
         return verticies[i]
     }
     
     func interiorAngle(at i:Int) -> Double {
         let v1 = vertex(at:i) - vertex(at:i-1)
         let v2 = vertex(at:i+1) - vertex(at:i)
-        //interior???
-        return Double.pi - v1.angle(v2)
+        //TODO: - fix
+        //this is not right yet as the sign will depend on if we are going clockwise or anitclockwise around a simle polygon
+        return Double.pi - relativeAngle(v1, v2)
+    }
+    
+    func exteriorAngle(at i:Int) -> Double {
+        return 2.0*Double.pi - interiorAngle(at: i)
     }
     
 }
+
 extension Triangle:NGon {
     var verticies: [Vec2] {
         return [a,b,c]

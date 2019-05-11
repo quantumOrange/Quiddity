@@ -93,11 +93,12 @@ public extension Vec2 {
         return acos(c)
     }
     
+    
     //The range of the angle is -π to π; an angle of 0 points to the right.
     var angle: Double {
         return atan2(y, x)
     }
-    
+
     var length:Double {
         return sqrt(x*x + y*y)
     }
@@ -138,4 +139,9 @@ extension Vec2 {
         return Vec2(x: r*cos(theta), y: r*sin(theta))
     }
     
+}
+
+func relativeAngle(_ u:Vec2, _ v:Vec2) -> Double {
+    //angle of v relative to u
+    return atan2(v.y,v.x) - atan2(u.y,u.x)
 }
