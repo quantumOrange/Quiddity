@@ -26,6 +26,7 @@
 		54553FDC21F2790F0020E5B6 /* LineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54553FDB21F2790F0020E5B6 /* LineTests.swift */; };
 		54A0910121F671BF00368C8B /* Rect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A0910021F671BF00368C8B /* Rect.swift */; };
 		54A0910321F671E600368C8B /* Square.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A0910221F671E600368C8B /* Square.swift */; };
+		54D050EF22998B420007DE6C /* Array2DTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D050EE22998B420007DE6C /* Array2DTests.swift */; };
 		54DCCB3921EDEA41006ECD64 /* Quiddity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54DCCB2F21EDEA41006ECD64 /* Quiddity.framework */; };
 		54DCCB3E21EDEA41006ECD64 /* QuiddityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DCCB3D21EDEA41006ECD64 /* QuiddityTests.swift */; };
 		54DCCB4021EDEA41006ECD64 /* Quiddity.h in Headers */ = {isa = PBXBuildFile; fileRef = 54DCCB3221EDEA41006ECD64 /* Quiddity.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -72,6 +73,7 @@
 		54553FDB21F2790F0020E5B6 /* LineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineTests.swift; sourceTree = "<group>"; };
 		54A0910021F671BF00368C8B /* Rect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rect.swift; sourceTree = "<group>"; };
 		54A0910221F671E600368C8B /* Square.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Square.swift; sourceTree = "<group>"; };
+		54D050EE22998B420007DE6C /* Array2DTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Array2DTests.swift; path = QuiddityTests/Array2DTests.swift; sourceTree = SOURCE_ROOT; };
 		54DCCB2F21EDEA41006ECD64 /* Quiddity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quiddity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		54DCCB3221EDEA41006ECD64 /* Quiddity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Quiddity.h; sourceTree = "<group>"; };
 		54DCCB3321EDEA41006ECD64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				54DCCB3D21EDEA41006ECD64 /* QuiddityTests.swift */,
+				54D050EE22998B420007DE6C /* Array2DTests.swift */,
 				544C33BA2273A6A300AB977C /* UtilsTests.swift */,
 				544C33B92273A5A000AB977C /* GeometryPrimitives */,
 				54DCCB3F21EDEA41006ECD64 /* Info.plist */,
@@ -351,6 +354,7 @@
 				544C33BB2273A6A300AB977C /* UtilsTests.swift in Sources */,
 				544C33BD2274DD8000AB977C /* CircleTests.swift in Sources */,
 				54553FDC21F2790F0020E5B6 /* LineTests.swift in Sources */,
+				54D050EF22998B420007DE6C /* Array2DTests.swift in Sources */,
 				544C33BF2274E2FC00AB977C /* PolygonTests.swift in Sources */,
 				54DCCB3E21EDEA41006ECD64 /* QuiddityTests.swift in Sources */,
 				544C33B622739EA100AB977C /* RectTests.swift in Sources */,

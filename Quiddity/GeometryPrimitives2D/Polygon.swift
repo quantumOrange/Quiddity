@@ -107,9 +107,12 @@ extension NGon {
     func interiorAngle(at i:Int) -> Double {
         let v1 = vertex(at:i) - vertex(at:i-1)
         let v2 = vertex(at:i+1) - vertex(at:i)
+        let theta = relativeAngle(v1, v2)
+        let interior = Double.pi - relativeAngle(v1, v2)
+        print( "Initerior:\(interior) Theta = \(theta) at \(i)")
         //TODO: - fix
         //this is not right yet as the sign will depend on if we are going clockwise or anitclockwise around a simle polygon
-        return Double.pi - relativeAngle(v1, v2)
+        return interior
     }
     
     func exteriorAngle(at i:Int) -> Double {

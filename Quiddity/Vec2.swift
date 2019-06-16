@@ -143,5 +143,14 @@ extension Vec2 {
 
 func relativeAngle(_ u:Vec2, _ v:Vec2) -> Double {
     //angle of v relative to u
-    return atan2(v.y,v.x) - atan2(u.y,u.x)
+    var theta = atan2(v.y,v.x) - atan2(u.y,u.x)
+    
+    if theta < -Double.pi  {
+        theta += 2*Double.pi
+    }
+    if theta > Double.pi {
+        theta -= 2*Double.pi
+    }
+    
+    return theta
 }

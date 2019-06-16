@@ -11,13 +11,39 @@ import Foundation
 protocol Evaluable {
     func evaluate(at t:Double) -> Vec2
     var  evaluableRange:Range<Double> { get }
+    var  mininumEvaluable:Double { get }
+    var  maximumEvaluable:Double { get }
 }
 
+
+extension Evaluable {
+    var  mininumEvaluable:Double { return  0.0 }
+    var  maximumEvaluable:Double { return  1.0 }
+}
 func  evaluate<E:Evaluable>(primitive e:E, at t:Double) -> Vec2 {
     return e.evaluate(at:t)
 }
 
+extension Evaluable {
+    
+    func createPoints(_ n:Int) -> [Vec2] {
+       
+        let dx = ( maximumEvaluable - mininumEvaluable ) / Double(n)
+        
+        return (0..<n)
+                    .map { Double($0) * dx }
+                    .map { evaluate(at: $0) }
+        
+        
+    }
+}
+//Ambiguous reference to member 'min(by:)'
+
 extension Circle: Evaluable {
+    
+    var  mininumEvaluable:Double { return  0.0 }
+    var  maximumEvaluable:Double { return  2*Double.pi }
+    
     var  evaluableRange:Range<Double> {
         return 0..<2*Double.pi
     }

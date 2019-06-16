@@ -5,7 +5,7 @@ public struct Array2D<T> {
     let rows: Int, columns: Int
     public var values: [T]
     
-    public init(rows: Int, columns: Int,value:T) {
+    public init(rows: Int, columns: Int, repeating value:T) {
         self.rows = rows
         self.columns = columns
         self.values = Array(repeating: value, count: rows * columns)

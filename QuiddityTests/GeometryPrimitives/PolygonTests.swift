@@ -23,6 +23,7 @@ class PolygonTests: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
+    
     func testEquatable(){
         let vertices = [Vec2(x: 1,y: 1),Vec2(x: 1,y: -1),Vec2(x: -1,y: -1),Vec2(x: -1,y: 1)]
         
@@ -33,6 +34,33 @@ class PolygonTests: XCTestCase {
         XCTAssertTrue( poly1 == poly2 ,  "These two polygons are the same")
         XCTAssertFalse( poly1 == poly3 ,  "These two polygons are not the same")
     }
+    
+    func testInteriorAngles(){
+        func sumInteriorAnglesTest(_ polygon:Polygon) {
+            var total = 0.0
+            
+            for i in 0..<polygon.verticies.count {
+                total += polygon.interiorAngle(at: i)
+            }
+            
+            let expected = Double(polygon.verticies.count - 2) * Double.pi
+            
+            XCTAssertEqual(total, expected , accuracy: 0.0001, "Sum of interior angles should be (n-2) * 180 degrees == \(expected) radians, but found \(total)")
+        }
+        
+        let hexagon = Polygon(verticies: Circle(center: Vec2.zero, radius: 2.0).createPoints(6))
+        let heptagon = Polygon(verticies: Circle(center: Vec2.zero, radius: 2.0).createPoints(7))
+        let octagon = Polygon(verticies: Circle(center: Vec2.zero, radius: 2.0).createPoints(8))
+        
+        let elevengon = Polygon(verticies: Circle(center: Vec2.zero, radius: 2.0).createPoints(11))
+        
+        sumInteriorAnglesTest(hexagon)
+        sumInteriorAnglesTest(heptagon)
+        sumInteriorAnglesTest(octagon)
+        sumInteriorAnglesTest(elevengon)
+    
+    }
+    
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
