@@ -21,6 +21,10 @@ public struct LineSegment {
     public var vector:Vec2 {
         return end - start
     }
+
+    public var length:Double {
+        return vector.length
+    }
     
     public var midPoint:Vec2 {
         return  start + 0.5*(end-start)

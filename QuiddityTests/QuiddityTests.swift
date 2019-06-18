@@ -77,5 +77,31 @@ class QuiddityTests: XCTestCase {
             }
         }
     }
+    
+    func testPerformanceTrianglesToCircles() {
+        
+        let pointTriples = (0..<100000).map { n in
+            (Vec2.gaussian(),
+             Vec2.gaussian(),
+             Vec2.gaussian())
+        }
+        
+        let unitCircle = Circle(center: Vec2.zero, radius: 1.0)
+        
+        self.measure {
+            let results = pointTriples
+                            .map( Triangle.init )
+                            .filter{ $0.contains(point: Vec2.zero)}
+                            .compactMap( Circle.init )
+                            .map { $0.intersect(with: unitCircle)}
+                            .filter{ $0.count == 2 }
+                            .map{ LineSegment(start: $0.first!,end: $0.last!)}
+                            .map{$0.length}
+            
+           // print(results.count)
+            
+        }
+        
+    }
 
 }
